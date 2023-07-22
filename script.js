@@ -1,4 +1,19 @@
 // All Variables
+let saturate = document.getElementById("saturate");
+
+let contrast = document.getElementById("contrast");
+
+let brightness = document.getElementById("brightness");
+
+let grayscale = document.getElementById("grayscale");
+
+let sepia = document.getElementById("sepia");
+
+let blur = document.getElementById("blur");
+
+let hueRotate = document.getElementById("hue-rotate");
+
+let invert = document.getElementById("invert");
 
 let btnUpload = document.querySelector(".btn-upload");
 
@@ -50,13 +65,21 @@ function handel() {
 
 // set Filters
 allInputs.forEach((input) => {
-  input.addEventListener("change", handelUpdate);
+  input.addEventListener("input", handelUpdate)
 });
 
 // function Set Filters
 function handelUpdate() {
-  const suffix = this.dataset.sizing || "";
-  theContext.filter = `${this.id}(${this.value + suffix})`;
+  theContext.filter = `
+  saturate(${saturate.value}%)
+  contrast(${contrast.value}%)
+  brightness(${brightness.value}%)
+  grayscale(${grayscale.value})
+  sepia(${sepia.value}%)
+  blur(${blur.value}px)
+  hue-rotate(${hueRotate.value}deg)
+  invert(${invert.value}%)
+  `;
   theContext.drawImage(imgUploaded, 0, 0, canvasImg.width, canvasImg.height);
 }
 
