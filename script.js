@@ -65,7 +65,7 @@ function handel() {
 
 // set Filters
 allInputs.forEach((input) => {
-  input.addEventListener("input", handelUpdate)
+  input.addEventListener("input", handelUpdate);
 });
 
 // function Set Filters
